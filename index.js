@@ -177,6 +177,10 @@ class CsvParser extends Transform {
     const skip = this.skipLines && this.skipLines !== this._line
     this._line++
 
+    if (skip) {
+      return
+    }
+
     if (this._first && !skip) {
       this._first = false
       this.headers = cells
